@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OmegaHub V3</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="topbar">
+OmegaHub V3 - @{{ user }} <a href="/logout">Sair</a>
+</div>
+
+<div class="post-box">
+<form action="/post" method="post">
+<input name="content" placeholder="Fale algo...">
+<button>Postar</button>
+</form>
+</div>
+
+{% for p in posts %}
+<div class="post">
+<b>@{{ p[1] }}</b>
+<p>{{ p[2] }}</p>
+
+<a href="/like/{{ p[0] }}">❤️</a>
+
+<form action="/comment/{{ p[0] }}" method="post">
+<input name="comment" placeholder="Comentar">
+</form>
+</div>
+{% endfor %}
+
+</body>
+</html>

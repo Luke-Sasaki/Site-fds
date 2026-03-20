@@ -1,0 +1,14 @@
+<h1>OmegaHub</h1>
+<a href="/chat">💬 Chat</a> | <a href="/logout">Sair</a>
+
+<form action="/post" method="post">
+<input name="content" placeholder="Postar">
+<button>Enviar</button>
+</form>
+
+{% for p in posts %}
+<div>
+<b>@{{p[1]}}</b>
+<p>{{p[2]}}</p>
+</div>
+{% endfor %}
